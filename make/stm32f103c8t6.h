@@ -10,27 +10,19 @@
 #define __IOM \
     volatile /*! Defines 'read / write' structure member permissions */
 
-typedef unsigned int u32;
-typedef unsigned short u16;
-typedef unsigned char u8;
-typedef unsigned int u32;
-typedef unsigned short u16;
-typedef unsigned char u8;
-
-
 /**
   \brief  Union type to access the Application Program Status Register (APSR).
  */
 typedef union {
     struct {
-        u32 _reserved0 : 27; /*!< bit:  0..26  Reserved */
-        u32 Q : 1;           /*!< bit:     27  Saturation condition flag */
-        u32 V : 1; /*!< bit:     28  Overflow condition code flag */
-        u32 C : 1; /*!< bit:     29  Carry condition code flag */
-        u32 Z : 1; /*!< bit:     30  Zero condition code flag */
-        u32 N : 1; /*!< bit:     31  Negative condition code flag */
+        unsigned int _reserved0 : 27; /*!< bit:  0..26  Reserved */
+        unsigned int Q : 1;           /*!< bit:     27  Saturation condition flag */
+        unsigned int V : 1; /*!< bit:     28  Overflow condition code flag */
+        unsigned int C : 1; /*!< bit:     29  Carry condition code flag */
+        unsigned int Z : 1; /*!< bit:     30  Zero condition code flag */
+        unsigned int N : 1; /*!< bit:     31  Negative condition code flag */
     } b;                /*!< Structure used for bit  access */
-    u32 w;         /*!< Type      used for word access */
+    unsigned int w;         /*!< Type      used for word access */
 } APSR_Type;
 
 /**
@@ -38,10 +30,10 @@ typedef union {
  */
 typedef union {
     struct {
-        u32 ISR : 9;         /*!< bit:  0.. 8  Exception number */
-        u32 _reserved0 : 23; /*!< bit:  9..31  Reserved */
+        unsigned int ISR : 9;         /*!< bit:  0.. 8  Exception number */
+        unsigned int _reserved0 : 23; /*!< bit:  9..31  Reserved */
     } b;                          /*!< Structure used for bit  access */
-    u32 w;                   /*!< Type      used for word access */
+    unsigned int w;                   /*!< Type      used for word access */
 } IPSR_Type;
 
 /**
@@ -50,17 +42,17 @@ typedef union {
  */
 typedef union {
     struct {
-        u32 ISR : 9;         /*!< bit:  0.. 8  Exception number */
-        u32 _reserved0 : 15; /*!< bit:  9..23  Reserved */
-        u32 T : 1;           /*!< bit:     24  Thumb bit        (read 0) */
-        u32 IT : 2;          /*!< bit: 25..26  saved IT state   (read 0) */
-        u32 Q : 1;           /*!< bit:     27  Saturation condition flag */
-        u32 V : 1; /*!< bit:     28  Overflow condition code flag */
-        u32 C : 1; /*!< bit:     29  Carry condition code flag */
-        u32 Z : 1; /*!< bit:     30  Zero condition code flag */
-        u32 N : 1; /*!< bit:     31  Negative condition code flag */
+        unsigned int ISR : 9;         /*!< bit:  0.. 8  Exception number */
+        unsigned int _reserved0 : 15; /*!< bit:  9..23  Reserved */
+        unsigned int T : 1;           /*!< bit:     24  Thumb bit        (read 0) */
+        unsigned int IT : 2;          /*!< bit: 25..26  saved IT state   (read 0) */
+        unsigned int Q : 1;           /*!< bit:     27  Saturation condition flag */
+        unsigned int V : 1; /*!< bit:     28  Overflow condition code flag */
+        unsigned int C : 1; /*!< bit:     29  Carry condition code flag */
+        unsigned int Z : 1; /*!< bit:     30  Zero condition code flag */
+        unsigned int N : 1; /*!< bit:     31  Negative condition code flag */
     } b;                /*!< Structure used for bit  access */
-    u32 w;         /*!< Type      used for word access */
+    unsigned int w;         /*!< Type      used for word access */
 } xPSR_Type;
 
 /**
@@ -68,35 +60,35 @@ typedef union {
  */
 typedef union {
     struct {
-        u32
+        unsigned int
             nPRIV : 1; /*!< bit:      0  Execution privilege in Thread mode */
-        u32 SPSEL : 1;       /*!< bit:      1  Stack to be used */
-        u32 _reserved1 : 30; /*!< bit:  2..31  Reserved */
+        unsigned int SPSEL : 1;       /*!< bit:      1  Stack to be used */
+        unsigned int _reserved1 : 30; /*!< bit:  2..31  Reserved */
     } b;                          /*!< Structure used for bit  access */
-    u32 w;                   /*!< Type      used for word access */
+    unsigned int w;                   /*!< Type      used for word access */
 } CONTROL_Type;
 
 typedef struct {
-    __IOM u32
+    __IOM unsigned int
         ISER[8U]; /*!< Offset: 0x000 (R/W)  Interrupt Set Enable Register */
-    u32 RESERVED0[24U];
-    __IOM u32
+    unsigned int RESERVED0[24U];
+    __IOM unsigned int
         ICER[8U]; /*!< Offset: 0x080 (R/W)  Interrupt Clear Enable Register */
-    u32 RSERVED1[24U];
-    __IOM u32
+    unsigned int RSERVED1[24U];
+    __IOM unsigned int
         ISPR[8U]; /*!< Offset: 0x100 (R/W)  Interrupt Set Pending Register */
-    u32 RESERVED2[24U];
-    __IOM u32
+    unsigned int RESERVED2[24U];
+    __IOM unsigned int
         ICPR[8U]; /*!< Offset: 0x180 (R/W)  Interrupt Clear Pending Register */
-    u32 RESERVED3[24U];
-    __IOM u32
+    unsigned int RESERVED3[24U];
+    __IOM unsigned int
         IABR[8U]; /*!< Offset: 0x200 (R/W)  Interrupt Active bit Register */
-    u32 RESERVED4[56U];
-    __IOM u8
+    unsigned int RESERVED4[56U];
+    __IOM unsigned char
         IP[240U]; /*!< Offset: 0x300 (R/W)  Interrupt Priority Register (8Bit
                      wide) */
-    u32 RESERVED5[644U];
-    __OM u32
+    unsigned int RESERVED5[644U];
+    __OM unsigned int
         STIR; /*!< Offset: 0xE00 ( /W)  Software Trigger Interrupt Register */
 } NVIC_Type;
 
@@ -104,40 +96,40 @@ typedef struct {
   \brief  Structure type to access the System Control Block (SCB).
  */
 typedef struct {
-    __IM u32 CPUID; /*!< Offset: 0x000 (R/ )  CPUID Base Register */
-    __IOM u32
+    __IM unsigned int CPUID; /*!< Offset: 0x000 (R/ )  CPUID Base Register */
+    __IOM unsigned int
         ICSR; /*!< Offset: 0x004 (R/W)  Interrupt Control and State Register */
-    __IOM u32
+    __IOM unsigned int
         VTOR; /*!< Offset: 0x008 (R/W)  Vector Table Offset Register */
-    __IOM u32 AIRCR; /*!< Offset: 0x00C (R/W)  Application Interrupt and
+    __IOM unsigned int AIRCR; /*!< Offset: 0x00C (R/W)  Application Interrupt and
                              Reset Control Register */
-    __IOM u32 SCR;   /*!< Offset: 0x010 (R/W)  System Control Register */
-    __IOM u32
+    __IOM unsigned int SCR;   /*!< Offset: 0x010 (R/W)  System Control Register */
+    __IOM unsigned int
         CCR; /*!< Offset: 0x014 (R/W)  Configuration Control Register */
-    __IOM u8 SHP[12U]; /*!< Offset: 0x018 (R/W)  System Handlers Priority
+    __IOM unsigned char SHP[12U]; /*!< Offset: 0x018 (R/W)  System Handlers Priority
                                Registers (4-7, 8-11, 12-15) */
-    __IOM u32 SHCSR;   /*!< Offset: 0x024 (R/W)  System Handler Control and
+    __IOM unsigned int SHCSR;   /*!< Offset: 0x024 (R/W)  System Handler Control and
                                State Register */
-    __IOM u32
+    __IOM unsigned int
         CFSR; /*!< Offset: 0x028 (R/W)  Configurable Fault Status Register */
-    __IOM u32 HFSR; /*!< Offset: 0x02C (R/W)  HardFault Status Register */
-    __IOM u32
+    __IOM unsigned int HFSR; /*!< Offset: 0x02C (R/W)  HardFault Status Register */
+    __IOM unsigned int
         DFSR; /*!< Offset: 0x030 (R/W)  Debug Fault Status Register */
-    __IOM u32
+    __IOM unsigned int
         MMFAR; /*!< Offset: 0x034 (R/W)  MemManage Fault Address Register */
-    __IOM u32 BFAR; /*!< Offset: 0x038 (R/W)  BusFault Address Register */
-    __IOM u32
+    __IOM unsigned int BFAR; /*!< Offset: 0x038 (R/W)  BusFault Address Register */
+    __IOM unsigned int
         AFSR; /*!< Offset: 0x03C (R/W)  Auxiliary Fault Status Register */
-    __IM u32
+    __IM unsigned int
         PFR[2U];       /*!< Offset: 0x040 (R/ )  Processor Feature Register */
-    __IM u32 DFR; /*!< Offset: 0x048 (R/ )  Debug Feature Register */
-    __IM u32 ADR; /*!< Offset: 0x04C (R/ )  Auxiliary Feature Register */
-    __IM u32
+    __IM unsigned int DFR; /*!< Offset: 0x048 (R/ )  Debug Feature Register */
+    __IM unsigned int ADR; /*!< Offset: 0x04C (R/ )  Auxiliary Feature Register */
+    __IM unsigned int
         MMFR[4U]; /*!< Offset: 0x050 (R/ )  Memory Model Feature Register */
-    __IM u32 ISAR
+    __IM unsigned int ISAR
         [5U]; /*!< Offset: 0x060 (R/ )  Instruction Set Attributes Register */
-    u32 RESERVED0[5U];
-    __IOM u32
+    unsigned int RESERVED0[5U];
+    __IOM unsigned int
         CPACR; /*!< Offset: 0x088 (R/W)  Coprocessor Access Control Register */
 } SCB_Type;
 
@@ -145,13 +137,13 @@ typedef struct {
   \brief  Structure type to access the System Timer (SysTick).
  */
 typedef struct {
-    __IOM u32
+    __IOM unsigned int
         CTRL; /*!< Offset: 0x000 (R/W)  SysTick Control and Status Register */
-    __IOM u32
+    __IOM unsigned int
         LOAD; /*!< Offset: 0x004 (R/W)  SysTick Reload Value Register */
-    __IOM u32
+    __IOM unsigned int
         VAL; /*!< Offset: 0x008 (R/W)  SysTick Current Value Register */
-    __IM u32
+    __IM unsigned int
         CALIB; /*!< Offset: 0x00C (R/ )  SysTick Calibration Register */
 } SysTick_Type;
 
@@ -161,51 +153,51 @@ typedef struct {
  */
 typedef struct {
     __OM union {
-        __OM unsigned char u8;   /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
-        __OM unsigned short u16; /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 16-bit */
-        __OM unsigned int u32; /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 32-bit */
+        __OM unsigned char uint32_t;   /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 8-bit */
+        __OM unsigned short uint16_t; /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 16-bit */
+        __OM unsigned int uint8_t; /*!< Offset: 0x000 ( /W)  ITM Stimulus Port 32-bit */
     } PORT[32U]; /*!< Offset: 0x000 ( /W)  ITM Stimulus Port Registers */
-    u32 RESERVED0[864U];
-    __IOM u32 TER; /*!< Offset: 0xE00 (R/W)  ITM Trace Enable Register */
-    u32 RESERVED1[15U];
-    __IOM u32
+    unsigned int RESERVED0[864U];
+    __IOM unsigned int TER; /*!< Offset: 0xE00 (R/W)  ITM Trace Enable Register */
+    unsigned int RESERVED1[15U];
+    __IOM unsigned int
         TPR; /*!< Offset: 0xE40 (R/W)  ITM Trace Privilege Register */
-    u32 RESERVED2[15U];
-    __IOM u32 TCR; /*!< Offset: 0xE80 (R/W)  ITM Trace Control Register */
-    u32 RESERVED3[29U];
-    __OM u32
+    unsigned int RESERVED2[15U];
+    __IOM unsigned int TCR; /*!< Offset: 0xE80 (R/W)  ITM Trace Control Register */
+    unsigned int RESERVED3[29U];
+    __OM unsigned int
         IWR; /*!< Offset: 0xEF8 ( /W)  ITM Integration Write Register */
-    __IM u32
+    __IM unsigned int
         IRR; /*!< Offset: 0xEFC (R/ )  ITM Integration Read Register */
-    __IOM u32
+    __IOM unsigned int
         IMCR; /*!< Offset: 0xF00 (R/W)  ITM Integration Mode Control Register */
-    u32 RESERVED4[43U];
-    __OM u32 LAR; /*!< Offset: 0xFB0 ( /W)  ITM Lock Access Register */
-    __IM u32 LSR; /*!< Offset: 0xFB4 (R/ )  ITM Lock Status Register */
-    u32 RESERVED5[6U];
-    __IM u32 PID4; /*!< Offset: 0xFD0 (R/ )  ITM Peripheral Identification
+    unsigned int RESERVED4[43U];
+    __OM unsigned int LAR; /*!< Offset: 0xFB0 ( /W)  ITM Lock Access Register */
+    __IM unsigned int LSR; /*!< Offset: 0xFB4 (R/ )  ITM Lock Status Register */
+    unsigned int RESERVED5[6U];
+    __IM unsigned int PID4; /*!< Offset: 0xFD0 (R/ )  ITM Peripheral Identification
                            Register #4 */
-    __IM u32 PID5; /*!< Offset: 0xFD4 (R/ )  ITM Peripheral Identification
+    __IM unsigned int PID5; /*!< Offset: 0xFD4 (R/ )  ITM Peripheral Identification
                            Register #5 */
-    __IM u32 PID6; /*!< Offset: 0xFD8 (R/ )  ITM Peripheral Identification
+    __IM unsigned int PID6; /*!< Offset: 0xFD8 (R/ )  ITM Peripheral Identification
                            Register #6 */
-    __IM u32 PID7; /*!< Offset: 0xFDC (R/ )  ITM Peripheral Identification
+    __IM unsigned int PID7; /*!< Offset: 0xFDC (R/ )  ITM Peripheral Identification
                            Register #7 */
-    __IM u32 PID0; /*!< Offset: 0xFE0 (R/ )  ITM Peripheral Identification
+    __IM unsigned int PID0; /*!< Offset: 0xFE0 (R/ )  ITM Peripheral Identification
                            Register #0 */
-    __IM u32 PID1; /*!< Offset: 0xFE4 (R/ )  ITM Peripheral Identification
+    __IM unsigned int PID1; /*!< Offset: 0xFE4 (R/ )  ITM Peripheral Identification
                            Register #1 */
-    __IM u32 PID2; /*!< Offset: 0xFE8 (R/ )  ITM Peripheral Identification
+    __IM unsigned int PID2; /*!< Offset: 0xFE8 (R/ )  ITM Peripheral Identification
                            Register #2 */
-    __IM u32 PID3; /*!< Offset: 0xFEC (R/ )  ITM Peripheral Identification
+    __IM unsigned int PID3; /*!< Offset: 0xFEC (R/ )  ITM Peripheral Identification
                            Register #3 */
-    __IM u32 CID0; /*!< Offset: 0xFF0 (R/ )  ITM Component  Identification
+    __IM unsigned int CID0; /*!< Offset: 0xFF0 (R/ )  ITM Component  Identification
                            Register #0 */
-    __IM u32 CID1; /*!< Offset: 0xFF4 (R/ )  ITM Component  Identification
+    __IM unsigned int CID1; /*!< Offset: 0xFF4 (R/ )  ITM Component  Identification
                            Register #1 */
-    __IM u32 CID2; /*!< Offset: 0xFF8 (R/ )  ITM Component  Identification
+    __IM unsigned int CID2; /*!< Offset: 0xFF8 (R/ )  ITM Component  Identification
                            Register #2 */
-    __IM u32 CID3; /*!< Offset: 0xFFC (R/ )  ITM Component  Identification
+    __IM unsigned int CID3; /*!< Offset: 0xFFC (R/ )  ITM Component  Identification
                            Register #3 */
 } ITM_Type;
 
@@ -213,97 +205,97 @@ typedef struct {
   \brief  Structure type to access the Data Watchpoint and Trace Register (DWT).
  */
 typedef struct {
-    __IOM u32 CTRL;   /*!< Offset: 0x000 (R/W)  Control Register */
-    __IOM u32 CYCCNT; /*!< Offset: 0x004 (R/W)  Cycle Count Register */
-    __IOM u32 CPICNT; /*!< Offset: 0x008 (R/W)  CPI Count Register */
-    __IOM u32
+    __IOM unsigned int CTRL;   /*!< Offset: 0x000 (R/W)  Control Register */
+    __IOM unsigned int CYCCNT; /*!< Offset: 0x004 (R/W)  Cycle Count Register */
+    __IOM unsigned int CPICNT; /*!< Offset: 0x008 (R/W)  CPI Count Register */
+    __IOM unsigned int
         EXCCNT; /*!< Offset: 0x00C (R/W)  Exception Overhead Count Register */
-    __IOM u32 SLEEPCNT; /*!< Offset: 0x010 (R/W)  Sleep Count Register */
-    __IOM u32 LSUCNT;   /*!< Offset: 0x014 (R/W)  LSU Count Register */
-    __IOM u32
+    __IOM unsigned int SLEEPCNT; /*!< Offset: 0x010 (R/W)  Sleep Count Register */
+    __IOM unsigned int LSUCNT;   /*!< Offset: 0x014 (R/W)  LSU Count Register */
+    __IOM unsigned int
         FOLDCNT; /*!< Offset: 0x018 (R/W)  Folded-instruction Count Register */
-    __IM u32
+    __IM unsigned int
         PCSR; /*!< Offset: 0x01C (R/ )  Program Counter Sample Register */
-    __IOM u32 COMP0;     /*!< Offset: 0x020 (R/W)  Comparator Register 0 */
-    __IOM u32 MASK0;     /*!< Offset: 0x024 (R/W)  Mask Register 0 */
-    __IOM u32 FUNCTION0; /*!< Offset: 0x028 (R/W)  Function Register 0 */
-    u32 RESERVED0[1U];
-    __IOM u32 COMP1;     /*!< Offset: 0x030 (R/W)  Comparator Register 1 */
-    __IOM u32 MASK1;     /*!< Offset: 0x034 (R/W)  Mask Register 1 */
-    __IOM u32 FUNCTION1; /*!< Offset: 0x038 (R/W)  Function Register 1 */
-    u32 RESERVED1[1U];
-    __IOM u32 COMP2;     /*!< Offset: 0x040 (R/W)  Comparator Register 2 */
-    __IOM u32 MASK2;     /*!< Offset: 0x044 (R/W)  Mask Register 2 */
-    __IOM u32 FUNCTION2; /*!< Offset: 0x048 (R/W)  Function Register 2 */
-    u32 RESERVED2[1U];
-    __IOM u32 COMP3;     /*!< Offset: 0x050 (R/W)  Comparator Register 3 */
-    __IOM u32 MASK3;     /*!< Offset: 0x054 (R/W)  Mask Register 3 */
-    __IOM u32 FUNCTION3; /*!< Offset: 0x058 (R/W)  Function Register 3 */
+    __IOM unsigned int COMP0;     /*!< Offset: 0x020 (R/W)  Comparator Register 0 */
+    __IOM unsigned int MASK0;     /*!< Offset: 0x024 (R/W)  Mask Register 0 */
+    __IOM unsigned int FUNCTION0; /*!< Offset: 0x028 (R/W)  Function Register 0 */
+    unsigned int RESERVED0[1U];
+    __IOM unsigned int COMP1;     /*!< Offset: 0x030 (R/W)  Comparator Register 1 */
+    __IOM unsigned int MASK1;     /*!< Offset: 0x034 (R/W)  Mask Register 1 */
+    __IOM unsigned int FUNCTION1; /*!< Offset: 0x038 (R/W)  Function Register 1 */
+    unsigned int RESERVED1[1U];
+    __IOM unsigned int COMP2;     /*!< Offset: 0x040 (R/W)  Comparator Register 2 */
+    __IOM unsigned int MASK2;     /*!< Offset: 0x044 (R/W)  Mask Register 2 */
+    __IOM unsigned int FUNCTION2; /*!< Offset: 0x048 (R/W)  Function Register 2 */
+    unsigned int RESERVED2[1U];
+    __IOM unsigned int COMP3;     /*!< Offset: 0x050 (R/W)  Comparator Register 3 */
+    __IOM unsigned int MASK3;     /*!< Offset: 0x054 (R/W)  Mask Register 3 */
+    __IOM unsigned int FUNCTION3; /*!< Offset: 0x058 (R/W)  Function Register 3 */
 } DWT_Type;
 
 /**
   \brief  Structure type to access the Trace Port Interface Register (TPI).
  */
 typedef struct {
-    __IOM u32
+    __IOM unsigned int
         SSPSR; /*!< Offset: 0x000 (R/ )  Supported Parallel Port Size Register
                 */
-    __IOM u32
+    __IOM unsigned int
         CSPSR; /*!< Offset: 0x004 (R/W)  Current Parallel Port Size Register */
-    u32 RESERVED0[2U];
-    __IOM u32
+    unsigned int RESERVED0[2U];
+    __IOM unsigned int
         ACPR; /*!< Offset: 0x010 (R/W)  Asynchronous Clock Prescaler Register */
-    u32 RESERVED1[55U];
-    __IOM u32
+    unsigned int RESERVED1[55U];
+    __IOM unsigned int
         SPPR; /*!< Offset: 0x0F0 (R/W)  Selected Pin Protocol Register */
-    u32 RESERVED2[131U];
-    __IM u32
+    unsigned int RESERVED2[131U];
+    __IM unsigned int
         FFSR; /*!< Offset: 0x300 (R/ )  Formatter and Flush Status Register */
-    __IOM u32
+    __IOM unsigned int
         FFCR; /*!< Offset: 0x304 (R/W)  Formatter and Flush Control Register */
-    __IM u32 FSCR; /*!< Offset: 0x308 (R/ )  Formatter Synchronization
+    __IM unsigned int FSCR; /*!< Offset: 0x308 (R/ )  Formatter Synchronization
                            Counter Register */
-    u32 RESERVED3[759U];
-    __IM u32 TRIGGER;   /*!< Offset: 0xEE8 (R/ )  TRIGGER */
-    __IM u32 FIFO0;     /*!< Offset: 0xEEC (R/ )  Integration ETM Data */
-    __IM u32 ITATBCTR2; /*!< Offset: 0xEF0 (R/ )  ITATBCTR2 */
-    u32 RESERVED4[1U];
-    __IM u32 ITATBCTR0; /*!< Offset: 0xEF8 (R/ )  ITATBCTR0 */
-    __IM u32 FIFO1;     /*!< Offset: 0xEFC (R/ )  Integration ITM Data */
-    __IOM u32 ITCTRL; /*!< Offset: 0xF00 (R/W)  Integration Mode Control */
-    u32 RESERVED5[39U];
-    __IOM u32 CLAIMSET; /*!< Offset: 0xFA0 (R/W)  Claim tag set */
-    __IOM u32 CLAIMCLR; /*!< Offset: 0xFA4 (R/W)  Claim tag clear */
-    u32 RESERVED7[8U];
-    __IM u32 DEVID;   /*!< Offset: 0xFC8 (R/ )  TPIU_DEVID */
-    __IM u32 DEVTYPE; /*!< Offset: 0xFCC (R/ )  TPIU_DEVTYPE */
+    unsigned int RESERVED3[759U];
+    __IM unsigned int TRIGGER;   /*!< Offset: 0xEE8 (R/ )  TRIGGER */
+    __IM unsigned int FIFO0;     /*!< Offset: 0xEEC (R/ )  Integration ETM Data */
+    __IM unsigned int ITATBCTR2; /*!< Offset: 0xEF0 (R/ )  ITATBCTR2 */
+    unsigned int RESERVED4[1U];
+    __IM unsigned int ITATBCTR0; /*!< Offset: 0xEF8 (R/ )  ITATBCTR0 */
+    __IM unsigned int FIFO1;     /*!< Offset: 0xEFC (R/ )  Integration ITM Data */
+    __IOM unsigned int ITCTRL; /*!< Offset: 0xF00 (R/W)  Integration Mode Control */
+    unsigned int RESERVED5[39U];
+    __IOM unsigned int CLAIMSET; /*!< Offset: 0xFA0 (R/W)  Claim tag set */
+    __IOM unsigned int CLAIMCLR; /*!< Offset: 0xFA4 (R/W)  Claim tag clear */
+    unsigned int RESERVED7[8U];
+    __IM unsigned int DEVID;   /*!< Offset: 0xFC8 (R/ )  TPIU_DEVID */
+    __IM unsigned int DEVTYPE; /*!< Offset: 0xFCC (R/ )  TPIU_DEVTYPE */
 } TPI_Type;
 
 /**
   \brief  Structure type to access the Memory Protection Unit (MPU).
  */
 typedef struct {
-    __IM u32 TYPE;  /*!< Offset: 0x000 (R/ )  MPU Type Register */
-    __IOM u32 CTRL; /*!< Offset: 0x004 (R/W)  MPU Control Register */
-    __IOM u32 RNR;  /*!< Offset: 0x008 (R/W)  MPU Region RNRber Register */
-    __IOM u32
+    __IM unsigned int TYPE;  /*!< Offset: 0x000 (R/ )  MPU Type Register */
+    __IOM unsigned int CTRL; /*!< Offset: 0x004 (R/W)  MPU Control Register */
+    __IOM unsigned int RNR;  /*!< Offset: 0x008 (R/W)  MPU Region RNRber Register */
+    __IOM unsigned int
         RBAR; /*!< Offset: 0x00C (R/W)  MPU Region Base Address Register */
-    __IOM u32
+    __IOM unsigned int
         RASR; /*!< Offset: 0x010 (R/W)  MPU Region Attribute and Size Register
                */
-    __IOM u32 RBAR_A1; /*!< Offset: 0x014 (R/W)  MPU Alias 1 Region Base
+    __IOM unsigned int RBAR_A1; /*!< Offset: 0x014 (R/W)  MPU Alias 1 Region Base
                                Address Register */
-    __IOM u32
+    __IOM unsigned int
         RASR_A1; /*!< Offset: 0x018 (R/W)  MPU Alias 1 Region Attribute and Size
          Register */
-    __IOM u32 RBAR_A2; /*!< Offset: 0x01C (R/W)  MPU Alias 2 Region Base
+    __IOM unsigned int RBAR_A2; /*!< Offset: 0x01C (R/W)  MPU Alias 2 Region Base
                                Address Register */
-    __IOM u32
+    __IOM unsigned int
         RASR_A2; /*!< Offset: 0x020 (R/W)  MPU Alias 2 Region Attribute and Size
          Register */
-    __IOM u32 RBAR_A3; /*!< Offset: 0x024 (R/W)  MPU Alias 3 Region Base
+    __IOM unsigned int RBAR_A3; /*!< Offset: 0x024 (R/W)  MPU Alias 3 Region Base
                                Address Register */
-    __IOM u32
+    __IOM unsigned int
         RASR_A3; /*!< Offset: 0x028 (R/W)  MPU Alias 3 Region Attribute and Size
                     Register */
 } MPU_Type;
@@ -312,14 +304,14 @@ typedef struct {
   \brief  Structure type to access the Core Debug Register (CoreDebug).
  */
 typedef struct {
-    __IOM u32 DHCSR; /*!< Offset: 0x000 (R/W)  Debug Halting Control and
+    __IOM unsigned int DHCSR; /*!< Offset: 0x000 (R/W)  Debug Halting Control and
                              Status Register */
-    __OM u32
+    __OM unsigned int
         DCRSR; /*!< Offset: 0x004 ( /W)  Debug Core Register Selector Register
                 */
-    __IOM u32
+    __IOM unsigned int
         DCRDR; /*!< Offset: 0x008 (R/W)  Debug Core Register Data Register */
-    __IOM u32 DEMCR; /*!< Offset: 0x00C (R/W)  Debug Exception and Monitor
+    __IOM unsigned int DEMCR; /*!< Offset: 0x00C (R/W)  Debug Exception and Monitor
                              Control Register */
 } CoreDebug_Type;
 
@@ -426,40 +418,40 @@ typedef enum {
  */
 
 typedef struct {
-    __IO u32 SR;
-    __IO u32 CR1;
-    __IO u32 CR2;
-    __IO u32 SMPR1;
-    __IO u32 SMPR2;
-    __IO u32 JOFR1;
-    __IO u32 JOFR2;
-    __IO u32 JOFR3;
-    __IO u32 JOFR4;
-    __IO u32 HTR;
-    __IO u32 LTR;
-    __IO u32 SQR1;
-    __IO u32 SQR2;
-    __IO u32 SQR3;
-    __IO u32 JSQR;
-    __IO u32 JDR1;
-    __IO u32 JDR2;
-    __IO u32 JDR3;
-    __IO u32 JDR4;
-    __IO u32 DR;
+    __IO unsigned int SR;
+    __IO unsigned int CR1;
+    __IO unsigned int CR2;
+    __IO unsigned int SMPR1;
+    __IO unsigned int SMPR2;
+    __IO unsigned int JOFR1;
+    __IO unsigned int JOFR2;
+    __IO unsigned int JOFR3;
+    __IO unsigned int JOFR4;
+    __IO unsigned int HTR;
+    __IO unsigned int LTR;
+    __IO unsigned int SQR1;
+    __IO unsigned int SQR2;
+    __IO unsigned int SQR3;
+    __IO unsigned int JSQR;
+    __IO unsigned int JDR1;
+    __IO unsigned int JDR2;
+    __IO unsigned int JDR3;
+    __IO unsigned int JDR4;
+    __IO unsigned int DR;
 } ADC_TypeDef;
 
 typedef struct {
-    __IO u32 SR;  /*!< ADC status register,    used for ADC multimode (bits
+    __IO unsigned int SR;  /*!< ADC status register,    used for ADC multimode (bits
                           common to several ADC instances). Address offset: ADC1
                           base address         */
-    __IO u32 CR1; /*!< ADC control register 1, used for ADC multimode (bits
+    __IO unsigned int CR1; /*!< ADC control register 1, used for ADC multimode (bits
                           common to several ADC instances). Address offset: ADC1
                           base address + 0x04  */
-    __IO u32 CR2; /*!< ADC control register 2, used for ADC multimode (bits
+    __IO unsigned int CR2; /*!< ADC control register 2, used for ADC multimode (bits
                           common to several ADC instances). Address offset: ADC1
                           base address + 0x08  */
-    u32 RESERVED[16];
-    __IO u32 DR; /*!< ADC data register,      used for ADC multimode (bits
+    unsigned int RESERVED[16];
+    __IO unsigned int DR; /*!< ADC data register,      used for ADC multimode (bits
                          common to several ADC instances). Address offset: ADC1
                          base address + 0x4C  */
 } ADC_Common_TypeDef;
@@ -469,20 +461,20 @@ typedef struct {
  */
 
 typedef struct {
-    u32 RESERVED0;
-    __IO u32 DR1;
-    __IO u32 DR2;
-    __IO u32 DR3;
-    __IO u32 DR4;
-    __IO u32 DR5;
-    __IO u32 DR6;
-    __IO u32 DR7;
-    __IO u32 DR8;
-    __IO u32 DR9;
-    __IO u32 DR10;
-    __IO u32 RTCCR;
-    __IO u32 CR;
-    __IO u32 CSR;
+    unsigned int RESERVED0;
+    __IO unsigned int DR1;
+    __IO unsigned int DR2;
+    __IO unsigned int DR3;
+    __IO unsigned int DR4;
+    __IO unsigned int DR5;
+    __IO unsigned int DR6;
+    __IO unsigned int DR7;
+    __IO unsigned int DR8;
+    __IO unsigned int DR9;
+    __IO unsigned int DR10;
+    __IO unsigned int RTCCR;
+    __IO unsigned int CR;
+    __IO unsigned int CSR;
 } BKP_TypeDef;
 
 /**
@@ -490,10 +482,10 @@ typedef struct {
  */
 
 typedef struct {
-    __IO u32 TIR;
-    __IO u32 TDTR;
-    __IO u32 TDLR;
-    __IO u32 TDHR;
+    __IO unsigned int TIR;
+    __IO unsigned int TDTR;
+    __IO unsigned int TDLR;
+    __IO unsigned int TDHR;
 } CAN_TxMailBox_TypeDef;
 
 /**
@@ -501,10 +493,10 @@ typedef struct {
  */
 
 typedef struct {
-    __IO u32 RIR;
-    __IO u32 RDTR;
-    __IO u32 RDLR;
-    __IO u32 RDHR;
+    __IO unsigned int RIR;
+    __IO unsigned int RDTR;
+    __IO unsigned int RDLR;
+    __IO unsigned int RDHR;
 } CAN_FIFOMailBox_TypeDef;
 
 /**
@@ -512,8 +504,8 @@ typedef struct {
  */
 
 typedef struct {
-    __IO u32 FR1;
-    __IO u32 FR2;
+    __IO unsigned int FR1;
+    __IO unsigned int FR2;
 } CAN_FilterRegister_TypeDef;
 
 /**
@@ -521,27 +513,27 @@ typedef struct {
  */
 
 typedef struct {
-    __IO u32 MCR;
-    __IO u32 MSR;
-    __IO u32 TSR;
-    __IO u32 RF0R;
-    __IO u32 RF1R;
-    __IO u32 IER;
-    __IO u32 ESR;
-    __IO u32 BTR;
-    u32 RESERVED0[88];
+    __IO unsigned int MCR;
+    __IO unsigned int MSR;
+    __IO unsigned int TSR;
+    __IO unsigned int RF0R;
+    __IO unsigned int RF1R;
+    __IO unsigned int IER;
+    __IO unsigned int ESR;
+    __IO unsigned int BTR;
+    unsigned int RESERVED0[88];
     CAN_TxMailBox_TypeDef sTxMailBox[3];
     CAN_FIFOMailBox_TypeDef sFIFOMailBox[2];
-    u32 RESERVED1[12];
-    __IO u32 FMR;
-    __IO u32 FM1R;
-    u32 RESERVED2;
-    __IO u32 FS1R;
-    u32 RESERVED3;
-    __IO u32 FFA1R;
-    u32 RESERVED4;
-    __IO u32 FA1R;
-    u32 RESERVED5[8];
+    unsigned int RESERVED1[12];
+    __IO unsigned int FMR;
+    __IO unsigned int FM1R;
+    unsigned int RESERVED2;
+    __IO unsigned int FS1R;
+    unsigned int RESERVED3;
+    __IO unsigned int FFA1R;
+    unsigned int RESERVED4;
+    __IO unsigned int FA1R;
+    unsigned int RESERVED5[8];
     CAN_FilterRegister_TypeDef sFilterRegister[14];
 } CAN_TypeDef;
 
@@ -550,14 +542,14 @@ typedef struct {
  */
 
 typedef struct {
-    __IO u32 DR;  /*!< CRC Data register,                           Address
+    __IO unsigned int DR;  /*!< CRC Data register,                           Address
                           offset: 0x00 */
-    __IO u8 IDR;  /*!< CRC Independent data register,               Address
+    __IO unsigned char IDR;  /*!< CRC Independent data register,               Address
                           offset: 0x04 */
-    u8 RESERVED0; /*!< Reserved,                                    Address
+    unsigned char RESERVED0; /*!< Reserved,                                    Address
                           offset: 0x05 */
-    u16 RESERVED1; /*!< Reserved, Address offset: 0x06 */
-    __IO u32 CR; /*!< CRC Control register,                        Address
+    unsigned short RESERVED1; /*!< Reserved, Address offset: 0x06 */
+    __IO unsigned int CR; /*!< CRC Control register,                        Address
                          offset: 0x08 */
 } CRC_TypeDef;
 
@@ -566,8 +558,8 @@ typedef struct {
  */
 
 typedef struct {
-    __IO u32 IDCODE;
-    __IO u32 CR;
+    __IO unsigned int IDCODE;
+    __IO unsigned int CR;
 } DBGMCU_TypeDef;
 
 /**
@@ -575,15 +567,15 @@ typedef struct {
  */
 
 typedef struct {
-    __IO u32 CCR;
-    __IO u32 CNDTR;
-    __IO u32 CPAR;
-    __IO u32 CMAR;
+    __IO unsigned int CCR;
+    __IO unsigned int CNDTR;
+    __IO unsigned int CPAR;
+    __IO unsigned int CMAR;
 } DMA_Channel_TypeDef;
 
 typedef struct {
-    __IO u32 ISR;
-    __IO u32 IFCR;
+    __IO unsigned int ISR;
+    __IO unsigned int IFCR;
 } DMA_TypeDef;
 
 /**
@@ -591,12 +583,12 @@ typedef struct {
  */
 
 typedef struct {
-    __IO u32 IMR;
-    __IO u32 EMR;
-    __IO u32 RTSR;
-    __IO u32 FTSR;
-    __IO u32 SWIER;
-    __IO u32 PR;
+    __IO unsigned int IMR;
+    __IO unsigned int EMR;
+    __IO unsigned int RTSR;
+    __IO unsigned int FTSR;
+    __IO unsigned int SWIER;
+    __IO unsigned int PR;
 } EXTI_TypeDef;
 
 /**
@@ -604,15 +596,15 @@ typedef struct {
  */
 
 typedef struct {
-    __IO u32 ACR;
-    __IO u32 KEYR;
-    __IO u32 OPTKEYR;
-    __IO u32 SR;
-    __IO u32 CR;
-    __IO u32 AR;
-    __IO u32 RESERVED;
-    __IO u32 OBR;
-    __IO u32 WRPR;
+    __IO unsigned int ACR;
+    __IO unsigned int KEYR;
+    __IO unsigned int OPTKEYR;
+    __IO unsigned int SR;
+    __IO unsigned int CR;
+    __IO unsigned int AR;
+    __IO unsigned int RESERVED;
+    __IO unsigned int OBR;
+    __IO unsigned int WRPR;
 } FLASH_TypeDef;
 
 /**
@@ -620,14 +612,14 @@ typedef struct {
  */
 
 typedef struct {
-    __IO u16 RDP;
-    __IO u16 USER;
-    __IO u16 Data0;
-    __IO u16 Data1;
-    __IO u16 WRP0;
-    __IO u16 WRP1;
-    __IO u16 WRP2;
-    __IO u16 WRP3;
+    __IO unsigned short RDP;
+    __IO unsigned short USER;
+    __IO unsigned short Data0;
+    __IO unsigned short Data1;
+    __IO unsigned short WRP0;
+    __IO unsigned short WRP1;
+    __IO unsigned short WRP2;
+    __IO unsigned short WRP3;
 } OB_TypeDef;
 
 /**
@@ -635,13 +627,13 @@ typedef struct {
  */
 
 typedef struct {
-    __IO u32 CRL;
-    __IO u32 CRH;
-    __IO u32 IDR;
-    __IO u32 ODR;
-    __IO u32 BSRR;
-    __IO u32 BRR;
-    __IO u32 LCKR;
+    __IO unsigned int CRL;
+    __IO unsigned int CRH;
+    __IO unsigned int IDR;
+    __IO unsigned int ODR;
+    __IO unsigned int BSRR;
+    __IO unsigned int BRR;
+    __IO unsigned int LCKR;
 } GPIO_TypeDef;
 
 /**
@@ -649,26 +641,26 @@ typedef struct {
  */
 
 typedef struct {
-    __IO u32 EVCR;
-    __IO u32 MAPR;
-    __IO u32 EXTICR[4];
-    u32 RESERVED0;
-    __IO u32 MAPR2;
+    __IO unsigned int EVCR;
+    __IO unsigned int MAPR;
+    __IO unsigned int EXTICR[4];
+    unsigned int RESERVED0;
+    __IO unsigned int MAPR2;
 } AFIO_TypeDef;
 /**
  * @brief Inter Integrated Circuit Interface
  */
 
 typedef struct {
-    __IO u32 CR1;
-    __IO u32 CR2;
-    __IO u32 OAR1;
-    __IO u32 OAR2;
-    __IO u32 DR;
-    __IO u32 SR1;
-    __IO u32 SR2;
-    __IO u32 CCR;
-    __IO u32 TRISE;
+    __IO unsigned int CR1;
+    __IO unsigned int CR2;
+    __IO unsigned int OAR1;
+    __IO unsigned int OAR2;
+    __IO unsigned int DR;
+    __IO unsigned int SR1;
+    __IO unsigned int SR2;
+    __IO unsigned int CCR;
+    __IO unsigned int TRISE;
 } I2C_TypeDef;
 
 /**
@@ -676,13 +668,13 @@ typedef struct {
  */
 
 typedef struct {
-    __IO u32 KR;  /*!< Key register,                                Address
+    __IO unsigned int KR;  /*!< Key register,                                Address
                           offset: 0x00 */
-    __IO u32 PR;  /*!< Prescaler register,                          Address
+    __IO unsigned int PR;  /*!< Prescaler register,                          Address
                           offset: 0x04 */
-    __IO u32 RLR; /*!< Reload register,                             Address
+    __IO unsigned int RLR; /*!< Reload register,                             Address
                           offset: 0x08 */
-    __IO u32 SR;  /*!< Status register,                             Address
+    __IO unsigned int SR;  /*!< Status register,                             Address
                           offset: 0x0C */
 } IWDG_TypeDef;
 
@@ -691,8 +683,8 @@ typedef struct {
  */
 
 typedef struct {
-    __IO u32 CR;
-    __IO u32 CSR;
+    __IO unsigned int CR;
+    __IO unsigned int CSR;
 } PWR_TypeDef;
 
 /**
@@ -700,16 +692,16 @@ typedef struct {
  */
 
 typedef struct {
-    __IO u32 CR;
-    __IO u32 CFGR;
-    __IO u32 CIR;
-    __IO u32 APB2RSTR;
-    __IO u32 APB1RSTR;
-    __IO u32 AHBENR;
-    __IO u32 APB2ENR;
-    __IO u32 APB1ENR;
-    __IO u32 BDCR;
-    __IO u32 CSR;
+    __IO unsigned int CR;
+    __IO unsigned int CFGR;
+    __IO unsigned int CIR;
+    __IO unsigned int APB2RSTR;
+    __IO unsigned int APB1RSTR;
+    __IO unsigned int AHBENR;
+    __IO unsigned int APB2ENR;
+    __IO unsigned int APB1ENR;
+    __IO unsigned int BDCR;
+    __IO unsigned int CSR;
 
 } RCC_TypeDef;
 
@@ -718,16 +710,16 @@ typedef struct {
  */
 
 typedef struct {
-    __IO u32 CRH;
-    __IO u32 CRL;
-    __IO u32 PRLH;
-    __IO u32 PRLL;
-    __IO u32 DIVH;
-    __IO u32 DIVL;
-    __IO u32 CNTH;
-    __IO u32 CNTL;
-    __IO u32 ALRH;
-    __IO u32 ALRL;
+    __IO unsigned int CRH;
+    __IO unsigned int CRL;
+    __IO unsigned int PRLH;
+    __IO unsigned int PRLL;
+    __IO unsigned int DIVH;
+    __IO unsigned int DIVL;
+    __IO unsigned int CNTH;
+    __IO unsigned int CNTL;
+    __IO unsigned int ALRH;
+    __IO unsigned int ALRL;
 } RTC_TypeDef;
 
 /**
@@ -735,26 +727,26 @@ typedef struct {
  */
 
 typedef struct {
-    __IO u32 POWER;
-    __IO u32 CLKCR;
-    __IO u32 ARG;
-    __IO u32 CMD;
-    __I u32 RESPCMD;
-    __I u32 RESP1;
-    __I u32 RESP2;
-    __I u32 RESP3;
-    __I u32 RESP4;
-    __IO u32 DTIMER;
-    __IO u32 DLEN;
-    __IO u32 DCTRL;
-    __I u32 DCOUNT;
-    __I u32 STA;
-    __IO u32 ICR;
-    __IO u32 MASK;
-    u32 RESERVED0[2];
-    __I u32 FIFOCNT;
-    u32 RESERVED1[13];
-    __IO u32 FIFO;
+    __IO unsigned int POWER;
+    __IO unsigned int CLKCR;
+    __IO unsigned int ARG;
+    __IO unsigned int CMD;
+    __I unsigned int RESPCMD;
+    __I unsigned int RESP1;
+    __I unsigned int RESP2;
+    __I unsigned int RESP3;
+    __I unsigned int RESP4;
+    __IO unsigned int DTIMER;
+    __IO unsigned int DLEN;
+    __IO unsigned int DCTRL;
+    __I unsigned int DCOUNT;
+    __I unsigned int STA;
+    __IO unsigned int ICR;
+    __IO unsigned int MASK;
+    unsigned int RESERVED0[2];
+    __I unsigned int FIFOCNT;
+    unsigned int RESERVED1[13];
+    __IO unsigned int FIFO;
 } SDIO_TypeDef;
 
 /**
@@ -762,65 +754,65 @@ typedef struct {
  */
 
 typedef struct {
-    __IO u32 CR1;
-    __IO u32 CR2;
-    __IO u32 SR;
-    __IO u32 DR;
-    __IO u32 CRCPR;
-    __IO u32 RXCRCR;
-    __IO u32 TXCRCR;
-    __IO u32 I2SCFGR;
+    __IO unsigned int CR1;
+    __IO unsigned int CR2;
+    __IO unsigned int SR;
+    __IO unsigned int DR;
+    __IO unsigned int CRCPR;
+    __IO unsigned int RXCRCR;
+    __IO unsigned int TXCRCR;
+    __IO unsigned int I2SCFGR;
 } SPI_TypeDef;
 
 /**
  * @brief TIM Timers
  */
 typedef struct {
-    __IO u32 CR1; /*!< TIM control register 1,                      Address
+    __IO unsigned int CR1; /*!< TIM control register 1,                      Address
                           offset: 0x00 */
-    __IO u32 CR2; /*!< TIM control register 2,                      Address
+    __IO unsigned int CR2; /*!< TIM control register 2,                      Address
                           offset: 0x04 */
-    __IO u32 SMCR; /*!< TIM slave Mode Control register, Address offset:
+    __IO unsigned int SMCR; /*!< TIM slave Mode Control register, Address offset:
                            0x08 */
-    __IO u32 DIER; /*!< TIM DMA/interrupt enable register, Address offset:
+    __IO unsigned int DIER; /*!< TIM DMA/interrupt enable register, Address offset:
                   0x0C */
-    __IO u32 SR;  /*!< TIM status register,                         Address
+    __IO unsigned int SR;  /*!< TIM status register,                         Address
                           offset: 0x10 */
-    __IO u32 EGR; /*!< TIM event generation register,               Address
+    __IO unsigned int EGR; /*!< TIM event generation register,               Address
                           offset: 0x14 */
-    __IO u32
+    __IO unsigned int
         CCMR1; /*!< TIM  capture/compare mode register 1,        Address offset:
                   0x18 */
-    __IO u32
+    __IO unsigned int
         CCMR2; /*!< TIM  capture/compare mode register 2,        Address offset:
                   0x1C */
-    __IO u32
+    __IO unsigned int
         CCER; /*!< TIM capture/compare enable register,         Address offset:
         0x20 */
-    __IO u32 CNT; /*!< TIM counter register,                        Address
+    __IO unsigned int CNT; /*!< TIM counter register,                        Address
                           offset: 0x24 */
-    __IO u32 PSC; /*!< TIM prescaler register,                      Address
+    __IO unsigned int PSC; /*!< TIM prescaler register,                      Address
                           offset: 0x28 */
-    __IO u32 ARR; /*!< TIM auto-reload register,                    Address
+    __IO unsigned int ARR; /*!< TIM auto-reload register,                    Address
                           offset: 0x2C */
-    __IO u32 RCR; /*!< TIM  repetition counter register,            Address
+    __IO unsigned int RCR; /*!< TIM  repetition counter register,            Address
                           offset: 0x30 */
-    __IO u32 CCR1; /*!< TIM capture/compare register 1, Address offset:
+    __IO unsigned int CCR1; /*!< TIM capture/compare register 1, Address offset:
                            0x34 */
-    __IO u32 CCR2; /*!< TIM capture/compare register 2, Address offset:
+    __IO unsigned int CCR2; /*!< TIM capture/compare register 2, Address offset:
                            0x38 */
-    __IO u32 CCR3; /*!< TIM capture/compare register 3, Address offset:
+    __IO unsigned int CCR3; /*!< TIM capture/compare register 3, Address offset:
                            0x3C */
-    __IO u32 CCR4; /*!< TIM capture/compare register 4, Address offset:
+    __IO unsigned int CCR4; /*!< TIM capture/compare register 4, Address offset:
                            0x40 */
-    __IO u32 BDTR; /*!< TIM break and dead-time register, Address offset:
+    __IO unsigned int BDTR; /*!< TIM break and dead-time register, Address offset:
                   0x44 */
-    __IO u32 DCR; /*!< TIM DMA control register,                    Address
+    __IO unsigned int DCR; /*!< TIM DMA control register,                    Address
                           offset: 0x48 */
-    __IO u32
+    __IO unsigned int
         DMAR; /*!< TIM DMA address for full transfer register,  Address offset:
          0x4C */
-    __IO u32 OR; /*!< TIM option register,                         Address
+    __IO unsigned int OR; /*!< TIM option register,                         Address
                          offset: 0x50 */
 } TIM_TypeDef;
 
@@ -829,19 +821,19 @@ typedef struct {
  */
 
 typedef struct {
-    __IO u32 SR;   /*!< USART Status register,                   Address
+    __IO unsigned int SR;   /*!< USART Status register,                   Address
                            offset: 0x00 */
-    __IO u32 DR;   /*!< USART Data register,                     Address
+    __IO unsigned int DR;   /*!< USART Data register,                     Address
                            offset: 0x04 */
-    __IO u32 BRR;  /*!< USART Baud rate register,                Address
+    __IO unsigned int BRR;  /*!< USART Baud rate register,                Address
                            offset: 0x08 */
-    __IO u32 CR1;  /*!< USART Control register 1,                Address
+    __IO unsigned int CR1;  /*!< USART Control register 1,                Address
                            offset: 0x0C */
-    __IO u32 CR2;  /*!< USART Control register 2,                Address
+    __IO unsigned int CR2;  /*!< USART Control register 2,                Address
                            offset: 0x10 */
-    __IO u32 CR3;  /*!< USART Control register 3,                Address
+    __IO unsigned int CR3;  /*!< USART Control register 3,                Address
                            offset: 0x14 */
-    __IO u32 GTPR; /*!< USART Guard time and prescaler register, Address
+    __IO unsigned int GTPR; /*!< USART Guard time and prescaler register, Address
                            offset: 0x18 */
 } USART_TypeDef;
 
@@ -850,45 +842,45 @@ typedef struct {
  */
 
 typedef struct {
-    __IO u16 EP0R; /*!< USB Endpoint 0 register,                   Address
+    __IO unsigned short EP0R; /*!< USB Endpoint 0 register,                   Address
                   offset: 0x00 */
-    __IO u16 RESERVED0; /*!< Reserved */
-    __IO u16 EP1R; /*!< USB Endpoint 1 register,                   Address
+    __IO unsigned short RESERVED0; /*!< Reserved */
+    __IO unsigned short EP1R; /*!< USB Endpoint 1 register,                   Address
                   offset: 0x04 */
-    __IO u16 RESERVED1; /*!< Reserved */
-    __IO u16 EP2R; /*!< USB Endpoint 2 register,                   Address
+    __IO unsigned short RESERVED1; /*!< Reserved */
+    __IO unsigned short EP2R; /*!< USB Endpoint 2 register,                   Address
                   offset: 0x08 */
-    __IO u16 RESERVED2; /*!< Reserved */
-    __IO u16 EP3R; /*!< USB Endpoint 3 register,                   Address
+    __IO unsigned short RESERVED2; /*!< Reserved */
+    __IO unsigned short EP3R; /*!< USB Endpoint 3 register,                   Address
                   offset: 0x0C */
-    __IO u16 RESERVED3; /*!< Reserved */
-    __IO u16 EP4R; /*!< USB Endpoint 4 register,                   Address
+    __IO unsigned short RESERVED3; /*!< Reserved */
+    __IO unsigned short EP4R; /*!< USB Endpoint 4 register,                   Address
                   offset: 0x10 */
-    __IO u16 RESERVED4; /*!< Reserved */
-    __IO u16 EP5R; /*!< USB Endpoint 5 register,                   Address
+    __IO unsigned short RESERVED4; /*!< Reserved */
+    __IO unsigned short EP5R; /*!< USB Endpoint 5 register,                   Address
                   offset: 0x14 */
-    __IO u16 RESERVED5; /*!< Reserved */
-    __IO u16 EP6R; /*!< USB Endpoint 6 register,                   Address
+    __IO unsigned short RESERVED5; /*!< Reserved */
+    __IO unsigned short EP6R; /*!< USB Endpoint 6 register,                   Address
                   offset: 0x18 */
-    __IO u16 RESERVED6; /*!< Reserved */
-    __IO u16 EP7R; /*!< USB Endpoint 7 register,                   Address
+    __IO unsigned short RESERVED6; /*!< Reserved */
+    __IO unsigned short EP7R; /*!< USB Endpoint 7 register,                   Address
                   offset: 0x1C */
-    __IO u16 RESERVED7[17]; /*!< Reserved */
-    __IO u16 CNTR; /*!< Control register,                          Address
+    __IO unsigned short RESERVED7[17]; /*!< Reserved */
+    __IO unsigned short CNTR; /*!< Control register,                          Address
                   offset: 0x40 */
-    __IO u16 RESERVED8; /*!< Reserved */
-    __IO u16 ISTR; /*!< Interrupt status register,                 Address
+    __IO unsigned short RESERVED8; /*!< Reserved */
+    __IO unsigned short ISTR; /*!< Interrupt status register,                 Address
                   offset: 0x44 */
-    __IO u16 RESERVED9; /*!< Reserved */
-    __IO u16 FNR; /*!< Frame number register,                     Address
+    __IO unsigned short RESERVED9; /*!< Reserved */
+    __IO unsigned short FNR; /*!< Frame number register,                     Address
                 offset: 0x48 */
-    __IO u16 RESERVEDA; /*!< Reserved */
-    __IO u16 DADDR; /*!< Device address register,                   Address
+    __IO unsigned short RESERVEDA; /*!< Reserved */
+    __IO unsigned short DADDR; /*!< Device address register,                   Address
                     offset: 0x4C */
-    __IO u16 RESERVEDB; /*!< Reserved */
-    __IO u16 BTABLE; /*!< Buffer Table address register,    Address offset:
+    __IO unsigned short RESERVEDB; /*!< Reserved */
+    __IO unsigned short BTABLE; /*!< Buffer Table address register,    Address offset:
                 0x50 */
-    __IO u16 RESERVEDC; /*!< Reserved */
+    __IO unsigned short RESERVEDC; /*!< Reserved */
 } USB_TypeDef;
 
 /**
@@ -896,9 +888,9 @@ typedef struct {
  */
 
 typedef struct {
-    __IO u32 CR;  /*!< WWDG Control register,       Address offset: 0x00 */
-    __IO u32 CFR; /*!< WWDG Configuration register, Address offset: 0x04 */
-    __IO u32 SR;  /*!< WWDG Status register,        Address offset: 0x08 */
+    __IO unsigned int CR;  /*!< WWDG Control register,       Address offset: 0x00 */
+    __IO unsigned int CFR; /*!< WWDG Configuration register, Address offset: 0x04 */
+    __IO unsigned int SR;  /*!< WWDG Status register,        Address offset: 0x08 */
 } WWDG_TypeDef;
 
 #define FLASH_BASE 0x08000000U /*!< FLASH base address in the alias region */

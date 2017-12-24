@@ -33,8 +33,8 @@ public:
 
 private:
   static void
-  delay_us(u32 time) {
-    u32 i = 0;
+  delay_us(unsigned int time) {
+    unsigned int i = 0;
     while (time--) {
       i = 12; // calibration
       while (i--)
@@ -43,8 +43,8 @@ private:
   }
 
   static void
-  delay_ms(u32 time) {
-    u32 i = 0;
+  delay_ms(unsigned int time) {
+    unsigned int i = 0;
     while (time--) {
       i = 12000; // calibration
       while (i--)

@@ -2,5 +2,5 @@
 
 int
 main() {
-	vpp::develop::show();
+  vpp::example::device_8digis_example();
 }

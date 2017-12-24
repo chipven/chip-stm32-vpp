@@ -1,15 +1,6 @@
+#include "vpp_chip_74hc595.hpp"
+#include "vpp_device_8digis.hpp"
 #include "vpp_example.hpp"
+#include "vpp_protocal_i2c.hpp"
+#include "vpp_system.hpp"
 
-namespace vpp {
-class develop {
-public:
-  static void
-  show() {
-	/*
-     *example::system_example();
-	 */
-	example::device_8digis_example();
-  }
-};
-
-} // namespace vpp

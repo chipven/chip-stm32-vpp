@@ -17,13 +17,9 @@ public:
     RCC->APB2ENR |= 0x00000008;
     GPIOB->CRH &= 0xe000eeee;
     GPIOB->CRH |= 0x03330000;
-    vpp::device_8digis d8((u32 *)(0x42000000 + 0x10c0c * 0x20 + 12 * 4),
-                          (u32 *)(0x42000000 + 0x10c0c * 0x20 + 13 * 4),
-                          (u32 *)(0x42000000 + 0x10c0c * 0x20 + 14 * 4), 1, 10);
-    int f = 1, i = 2;
-    while (++i < 5) {
-      f *= i;
-    }
+    vpp::device_8digis d8((unsigned int *)(0x42000000 + 0x10c0c * 0x20 + 12 * 4),
+                          (unsigned int *)(0x42000000 + 0x10c0c * 0x20 + 13 * 4),
+                          (unsigned int *)(0x42000000 + 0x10c0c * 0x20 + 14 * 4), 1, 16);
     while (1)
       d8.show_number_trice(8);
   }
